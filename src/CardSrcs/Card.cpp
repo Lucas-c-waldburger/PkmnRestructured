@@ -1,4 +1,4 @@
-#include "../headers/Card.h"
+#include "../../headers/CardHeaders/Card.h"
 
 Card::Card(const CardData& data) : cData(std::make_unique<CardData>(data))
 {}
@@ -9,6 +9,11 @@ Card::~Card()
 bool Card::operator==(const Card &rhs)
 {
     return (*this->cData) == *(rhs.cData);
+}
+
+bool Card::operator==(const ProxyGroup& proxyGrp)
+{
+    return *(this->cData) == proxyGrp.cData;
 }
 
 bool Card::operator==(const ProxyGroup&& proxyGrp)

@@ -1,7 +1,7 @@
 #ifndef PKMNRESTRUCTURED_CARDDATA_H
 #define PKMNRESTRUCTURED_CARDDATA_H
 
-#include "Types.h"
+#include "../../Types.h"
 
 struct PkmnData;
 struct EnergyData;

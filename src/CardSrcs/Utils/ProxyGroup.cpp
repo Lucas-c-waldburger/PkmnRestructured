@@ -1,4 +1,4 @@
-#include "../headers/ProxyGroup.h"
+#include "../../../headers/CardHeaders/Utils/ProxyGroup.h"
 
 
 ProxyGroup::ProxyGroup(int nCards, CardType ct) : numCards(nCards), cData(CardID::ANY, ct, EnergyType::ANY)

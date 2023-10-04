@@ -1,7 +1,7 @@
 #ifndef PKMNRESTRUCTURED_CARD_H
 #define PKMNRESTRUCTURED_CARD_H
 
-#include "ProxyGroup.h"
+#include "Utils/ProxyGroup.h"
 
 
 class NullCard;
@@ -12,6 +12,7 @@ public:
     ~Card();
 
     bool operator==(const Card& rhs);
+    bool operator==(const ProxyGroup& proxyGrp);
     bool operator==(const ProxyGroup&& proxyGrp);
 
     const std::unique_ptr<CardData>& getCData();

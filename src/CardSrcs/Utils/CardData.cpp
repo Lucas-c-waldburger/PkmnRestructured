@@ -1,6 +1,6 @@
 #include <utility>
 
-#include "../headers/CardData.h"
+#include "../../../headers/CardHeaders/Utils/CardData.h"
 
 /* CardData */
 CardData::CardData(CardID id, CardType ct, EnergyType et) : cId(id), cType(ct), eType(et)
