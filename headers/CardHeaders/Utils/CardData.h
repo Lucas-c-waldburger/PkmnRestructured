@@ -1,7 +1,7 @@
 #ifndef PKMNRESTRUCTURED_CARDDATA_H
 #define PKMNRESTRUCTURED_CARDDATA_H
 
-#include "../../ExceptionHeaders/Utils/StringConvertMaps.h"
+#include "../../Types/Utils/StringConvert.h"
 #include <sstream>
 
 struct PkmnData;

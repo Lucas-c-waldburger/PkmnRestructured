@@ -29,7 +29,7 @@ void ZoneTools::moveRequestedCards(Zone& origin, Zone& destination, std::initial
             auto foundCard = std::find_if(origin.cards.begin(), origin.cards.end(), ProxyComp(reqCs));
 
             if (foundCard == origin.cards.end())
-                throw CNotFound(StringConvertMaps::fromZoneName.at(origin.getName()), reqCs.cData);
+                throw CNotFound(asString(origin.getName()), reqCs.cData);
 
             destination.cards.push_back(std::move(*foundCard));
 
@@ -50,7 +50,7 @@ bool ZoneTools::Validate::allCardsPresent(Zone& origin, std::initializer_list<Pr
     for (auto& reqCs : requestedCards)
     {
         if (ZoneTools::getCount(origin, reqCs) < reqCs.numCards)
-            throw CNotFound(StringConvertMaps::fromZoneName.at(origin.getName()), reqCs.cData);
+            throw CNotFound(asString(origin.getName()), reqCs.cData);
     }
     return true;
 }
@@ -63,8 +63,8 @@ bool ZoneTools::Validate::validCLimit(Zone& destination, std::initializer_list<P
     bool withinLimits = destination.cards.size() + totalCards <= destination.getCardLimit();
 
     if (!withinLimits)
-        throw OverCLimit(StringConvertMaps::fromZoneName.at(destination.getName()),
-                         totalCards, destination.cards.size(), destination.getCardLimit());
+        throw OverCLimit(asString(destination.getName()), totalCards, destination.cards.size(),
+                         destination.getCardLimit());
 
     return withinLimits;
 }
@@ -74,7 +74,7 @@ bool ZoneTools::Validate::validCType(Zone& destination, std::initializer_list<Pr
     for (auto& reqCs : requestedCards)
     {
         if (!destination.acceptedCTypes(reqCs.cData.cType))
-            throw UnacceptedCType(StringConvertMaps::fromZoneName.at(destination.getName()),
+            throw UnacceptedCType(asString(destination.getName()),
                                   destination.acceptedCTypes.getAsList(), reqCs.cData.cType);
     }
     return true;

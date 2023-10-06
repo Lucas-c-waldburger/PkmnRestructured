@@ -34,13 +34,10 @@ void Zone::testAdd(CardID id, CardType ct, EnergyType et)
 
 Zone::AcceptedCTypes::AcceptedCTypes(std::initializer_list<CardType> cts) : mSet(cts)
 {
-    //for (auto& s : mSet ) { std::cout << StringConvertMaps::fromCType.at(s) << " "; }
     if (mSet.count(CardType::NULL_CARD))
         throw std::invalid_argument("Cannot permit a zone to accept NULL_CARD type");
     if (mSet.count(CardType::ANY))
         mSet = { CardType::PKMN, CardType::ENERGY, CardType::TRAINER };
-    for (auto& s : mSet ) { std::cout << StringConvertMaps::fromCType.at(s) << " "; }
-    std:: cout << "\n\n";
 }
 
 bool Zone::AcceptedCTypes::operator()(CardType ct)
@@ -52,7 +49,7 @@ std::string Zone::AcceptedCTypes::getAsList()
 {
     std::string validCTypeStr;
     for (auto& ct : mSet)
-        validCTypeStr += StringConvertMaps::fromCType.at(ct) + '\n';
+        validCTypeStr += asString(ct) + '\n';
 
     return validCTypeStr;
 }

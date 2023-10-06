@@ -7,7 +7,7 @@ UnacceptedCType::UnacceptedCType(const std::string& zoneName, const std::string&
 
 void UnacceptedCType::makeMessage(const std::string& zoneName, const std::string& validCTypesStr, CardType ct)
 {
-    whatMsg = "Cannot move CardType::" + StringConvertMaps::fromCType.at(ct) +
+    whatMsg = "Cannot move CardType::" + asString(ct) +
               " into ZoneName::" + zoneName +
               ".\nAccepted CTypes are:\n" + validCTypesStr;
 }

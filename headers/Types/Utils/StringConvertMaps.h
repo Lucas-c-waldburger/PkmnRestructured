@@ -1,7 +1,7 @@
 #ifndef PKMNRESTRUCTURED_STRINGCONVERTMAPS_H
 #define PKMNRESTRUCTURED_STRINGCONVERTMAPS_H
 
-#include "../../Types.h"
+#include "../Types.h"
 #include <unordered_map>
 
 namespace StringConvertMaps

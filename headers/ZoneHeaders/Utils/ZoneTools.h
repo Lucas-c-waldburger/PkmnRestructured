@@ -3,7 +3,7 @@
 #include "../../CardHeaders/Card.h"
 #include "../../CardHeaders/Utils/CardComp.h"
 #include "../Zone.h"
-#include "../../ExceptionHeaders/Utils/StringConvertMaps.h"
+#include "../../Types/Utils/StringConvert.h"
 #include "../../ExceptionHeaders/UnacceptedCType.h"
 #include "../../ExceptionHeaders/OverCLimit.h"
 #include "../../ExceptionHeaders/CNotFound.h"

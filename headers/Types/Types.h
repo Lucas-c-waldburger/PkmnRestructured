@@ -2,7 +2,7 @@
 #define PKMNRESTRUCTURED_TYPES_H
 
 #include <iostream>
-#include "ExceptionHeaders/ExceptionLogger.h"
+#include "../ExceptionHeaders/ExceptionLogger.h"
 
 /* ----------------------- CARD ID ----------------------- */
 
