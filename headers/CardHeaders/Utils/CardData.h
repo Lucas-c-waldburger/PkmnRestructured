@@ -1,7 +1,8 @@
 #ifndef PKMNRESTRUCTURED_CARDDATA_H
 #define PKMNRESTRUCTURED_CARDDATA_H
 
-#include "../../Types.h"
+#include "../../ExceptionHeaders/Utils/StringConvertMaps.h"
+#include <sstream>
 
 struct PkmnData;
 struct EnergyData;
@@ -21,7 +22,8 @@ struct CardData
     virtual EnergyData *getEnergyData();
     virtual TrainerData *getTrainerData();
 
-    //virtual void print() const;
+    friend std::ostream& operator<<(std::ostream& os, CardData& cd);
+    virtual std::string getAsStr() const;
 };
 
 struct PkmnData : public CardData
@@ -38,7 +40,6 @@ struct PkmnData : public CardData
     AttackNames attackNames; // use names as keys for attackFuncMap
 
     const PkmnData* getPkmnData() const override;
-    //void print() const override;
 
 };
 
@@ -50,7 +51,6 @@ struct EnergyData : public CardData
     int value;
 
     EnergyData* getEnergyData() override;
-    //void print() const override;
 
 };
 
@@ -62,7 +62,6 @@ struct TrainerData : public CardData
     std::string effectName;
 
     TrainerData* getTrainerData() override;
-    //void print() const override;
 
 };
 

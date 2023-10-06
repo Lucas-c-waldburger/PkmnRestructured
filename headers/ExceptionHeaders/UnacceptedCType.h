@@ -3,17 +3,17 @@
 
 #include "InvalidMove.h"
 
-
-class UnacceptedCType : public InvalidMove<CardType>
+class Zone;
+class UnacceptedCType : public InvalidMove
 {
 public:
-    UnacceptedCType(CardType ct);
-
-    const char* what() const throw() override;
+    UnacceptedCType(const std::string& zoneName, const std::string& validCTypesStr, CardType ct);
+    virtual ~UnacceptedCType() = default;
 
 private:
-    const char* makeMessage() override;
+    void makeMessage(const std::string& zoneName, const std::string& validCTypesStr, CardType ct);
 };
+
 
 
 

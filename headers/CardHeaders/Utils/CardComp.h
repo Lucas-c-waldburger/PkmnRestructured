@@ -78,4 +78,6 @@ inline bool ProxyComp::operator()(const std::unique_ptr<Card> &c) const
 
 
 
+
+
 #endif //PKMNRESTRUCTURED_CARDCOMP_H

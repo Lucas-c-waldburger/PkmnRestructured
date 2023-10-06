@@ -7,22 +7,39 @@
 namespace StringConvertMaps
 {
 
-    static inline const std::unordered_map<CardType, const std::string> fromCType =
+    static inline const std::unordered_map<CardType, std::string> fromCType =
             {
-                    {CardType::ENERGY,  "Energy Card"},
-                    {CardType::PKMN,    "Pokemon Card"},
-                    {CardType::TRAINER, "Trainer Card"}
+                    { CardType::NULL_CARD, "NULL_CARD" },
+                    { CardType::ANY,       "ANY" },
+                    { CardType::ENERGY,    "ENERGY" },
+                    { CardType::PKMN,      "PKMN" },
+                    { CardType::TRAINER,   "TRAINER" }
             };
 
-    static inline const std::unordered_map<EnergyType, const std::string> fromEType =
+    static inline const std::unordered_map<EnergyType, std::string> fromEType =
             {
-                    {EnergyType::WATER,     "Water"},
-                    {EnergyType::FIRE,      "Fire"},
-                    {EnergyType::GRASS,     "Grass"},
-                    {EnergyType::ELECTRIC,  "Electric"},
-                    {EnergyType::PSYCHIC,   "Psychic"},
-                    {EnergyType::FIGHTING,  "Fighting"},
-                    {EnergyType::COLORLESS, "Colorless"}
+                    { EnergyType::NULL_ENERGY, "NULL_ENERGY" },
+                    { EnergyType::ANY,         "ANY" },
+                    { EnergyType::WATER,       "WATER" },
+                    { EnergyType::FIRE,        "FIRE" },
+                    { EnergyType::GRASS,       "GRASS" },
+                    { EnergyType::ELECTRIC,    "ELECTRIC" },
+                    { EnergyType::PSYCHIC,     "PSYCHIC" },
+                    { EnergyType::FIGHTING,    "FIGHTING" },
+                    { EnergyType::COLORLESS,   "COLORLESS" }
+            };
+
+    static inline const std::unordered_map<ZoneName, std::string> fromZoneName =
+            {
+                    { ZoneName::BASE,         "BASE" },
+                    { ZoneName::ATTACHED,     "ATTACHED" },
+                    { ZoneName::ACTIVE_ZONE,  "ACTIVE_ZONE" },
+                    { ZoneName::DECK,         "DECK" },
+                    { ZoneName::BENCH,        "BENCH" },
+                    { ZoneName::HAND,         "HAND" },
+                    { ZoneName::DISCARD_PILE, "DISCARD_PILE" },
+                    { ZoneName::PRIZES,       "PRIZES" },
+                    { ZoneName::NULL_ZONE,    "NULL_ZONE" }
             };
 
 }

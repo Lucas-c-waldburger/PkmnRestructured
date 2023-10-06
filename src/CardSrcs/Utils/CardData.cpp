@@ -16,10 +16,26 @@ bool CardData::operator==(const CardData& rhs)
            this->eType == rhs.eType;
 }
 
-const PkmnData *CardData::getPkmnData() const { return nullptr; }
-EnergyData *CardData::getEnergyData() { return nullptr; }
-TrainerData *CardData::getTrainerData() { return nullptr; }
+const PkmnData* CardData::getPkmnData() const { return nullptr; }
+EnergyData* CardData::getEnergyData() { return nullptr; }
+TrainerData* CardData::getTrainerData() { return nullptr; }
 
+std::ostream& operator<<(std::ostream& os, CardData& cd)
+{
+    os << "CardID: " << cd.cId
+       << "\nCardType: " << StringConvertMaps::fromCType.at(cd.cType)
+       << "\nEnergyType: " << StringConvertMaps::fromEType.at(cd.eType);
+
+    return os;
+}
+
+std::string CardData::getAsStr() const
+{
+    std::string cIdStr = "CardID: " +  std::to_string(intCast(cId)) +
+                         "\nCardType: " + StringConvertMaps::fromCType.at(cType) +
+                         "\nEnergyType: " + StringConvertMaps::fromEType.at(eType);
+    return cIdStr;
+}
 
 /* PkmnData */
 PkmnData::PkmnData(CardID id, EnergyType et, Stage st, int bHp, EnergyType weak, EnergyType res, AttackNames atNm) :
@@ -43,7 +59,7 @@ EnergyData* EnergyData::getEnergyData() { return this; }
 
 
 /* TrainerData */
-TrainerData::TrainerData(CardID id, const std::string &effNm) : CardData(id, CardType::TRAINER, EnergyType::ANY)
+TrainerData::TrainerData(CardID id, const std::string& effNm) : CardData(id, CardType::TRAINER, EnergyType::ANY)
 {}
 
 TrainerData::~TrainerData()

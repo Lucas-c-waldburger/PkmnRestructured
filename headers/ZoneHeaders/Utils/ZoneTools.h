@@ -3,9 +3,13 @@
 #include "../../CardHeaders/Card.h"
 #include "../../CardHeaders/Utils/CardComp.h"
 #include "../Zone.h"
+#include "../../ExceptionHeaders/Utils/StringConvertMaps.h"
+#include "../../ExceptionHeaders/UnacceptedCType.h"
+#include "../../ExceptionHeaders/OverCLimit.h"
+#include "../../ExceptionHeaders/CNotFound.h"
 #include <vector>
 #include <numeric>
-
+#include <unordered_set>
 
 class ZoneTools
 {
@@ -19,6 +23,7 @@ public:
     template <class T, class U>
     static int getCount(Zone& zone, T compVal1, U compVal2);
     static int getCount(Zone& zone, const ProxyGroup& proxyGroup);
+
 
 private:
     struct Validate

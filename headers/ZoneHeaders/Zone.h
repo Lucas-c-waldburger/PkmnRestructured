@@ -2,6 +2,7 @@
 #define PKMNRESTRUCTURED_ZONE_H
 #include <vector>
 #include <unordered_map>
+#include <unordered_set>
 #include "../CardHeaders/Card.h"
 
 class Zone
@@ -9,14 +10,13 @@ class Zone
 public:
     friend class ZoneTools;
 
-    Zone(ZoneName zNm, int cLimit);
+    Zone(ZoneName zNm, std::initializer_list<CardType> acceptedCTs, int cLimit);
     virtual ~Zone() = default;
-
-    virtual bool moveTo(Zone& destination, std::initializer_list<ProxyGroup> requestedCards);
 
     virtual int getCardLimit() const;
     ZoneName getName() const;
 
+    virtual bool moveTo(Zone& destination, std::initializer_list<ProxyGroup> requestedCards);
     void testAdd(CardID id, CardType ct, EnergyType et);
 
 protected:
@@ -24,8 +24,17 @@ protected:
 
     const ZoneName name;
     const int cardLimit;
-    std::unordered_map<CardType, int> acceptedCTypes;
 
+    class AcceptedCTypes
+    {
+    public:
+        AcceptedCTypes(std::initializer_list<CardType> cts);
+        bool operator()(CardType ct);
+        std::string getAsList();
+    private:
+        std::unordered_set<CardType, std::hash<CardType>, IntCastComp<CardType>> mSet;
+        //std::unordered_set<CardType> mSet;
+    } acceptedCTypes;
 };
 
 

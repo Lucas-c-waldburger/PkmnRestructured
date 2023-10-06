@@ -1,16 +1,14 @@
 #include "../../headers/ExceptionHeaders/UnacceptedCType.h"
 
-UnacceptedCType::UnacceptedCType(CardType ct) : InvalidMove<CardType>(ct)
-{}
-
-const char *UnacceptedCType::what() const throw()
+UnacceptedCType::UnacceptedCType(const std::string& zoneName, const std::string& validCTypesStr, CardType ct) : InvalidMove()
 {
-    return makeMessage();
+    makeMessage(zoneName, validCTypesStr, ct);
 }
 
-const char *UnacceptedCType::makeMessage()
+void UnacceptedCType::makeMessage(const std::string& zoneName, const std::string& validCTypesStr, CardType ct)
 {
-    const std::string cTypeStr = StringConvertMaps::fromCType[data];
-
+    whatMsg = "Cannot move CardType::" + StringConvertMaps::fromCType.at(ct) +
+              " into ZoneName::" + zoneName +
+              ".\nAccepted CTypes are:\n" + validCTypesStr;
 }
 
